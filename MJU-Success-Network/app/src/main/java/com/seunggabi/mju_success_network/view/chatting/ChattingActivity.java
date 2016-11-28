@@ -38,7 +38,7 @@ public class ChattingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         groupData = (GroupData)intent.getSerializableExtra("GroupData");
 
-        send = (TextView)findViewById(R.id.send);
+        send = (TextView)findViewById(R.id.search);
         listView = (ListView)findViewById(R.id.listView);
         adapter = new ChattingViewAdapter(this);
         listView.setAdapter(adapter);
@@ -65,7 +65,7 @@ public class ChattingActivity extends AppCompatActivity {
         HashMap<String, String> data = new HashMap<String, String>();
         data.put("g_id", String.valueOf(groupData.getG_id()));
         data.put("token", FirebaseInstanceId.getInstance().getToken());
-        String url = "http://"+ Constants.IP+"/api/chat.php";
+        String url = "http://"+ Constants.IP+"/api/chatting.php";
         JSONArray array = null;
 
         if(Tool.getInstance().isNetwork(this))

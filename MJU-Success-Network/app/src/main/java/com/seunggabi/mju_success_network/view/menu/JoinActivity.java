@@ -12,7 +12,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
-import com.seunggabi.mju_success_network.view.group.GroupAddActivity;
 import com.seunggabi.mju_success_network.view.group.GroupData;
 import com.seunggabi.mju_success_network.view.group.GroupInfoActivity;
 import com.seunggabi.mju_success_network.view.group.GroupViewAdapter;
@@ -38,7 +37,7 @@ public class JoinActivity extends ParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
-        search = (TextView)findViewById(R.id.send);
+        search = (TextView)findViewById(R.id.search);
         listView = (ListView)findViewById(R.id.listView);
         adapter = new GroupViewAdapter(this);
         listView.setAdapter(adapter);

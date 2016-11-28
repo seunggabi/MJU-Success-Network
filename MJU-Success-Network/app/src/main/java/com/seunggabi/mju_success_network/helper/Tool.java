@@ -17,6 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import okhttp3.FormBody;
@@ -149,5 +152,10 @@ public class Tool {
             }
             Constants.user = user;
         }
+    }
+
+    public String getDateString(Date date) {
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return transFormat.format(date);
     }
 }

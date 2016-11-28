@@ -36,7 +36,7 @@ public class GroupActivity extends ParentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-        search = (TextView)findViewById(R.id.send);
+        search = (TextView)findViewById(R.id.search);
         listView = (ListView)findViewById(R.id.listView);
         adapter = new GroupViewAdapter(this);
         listView.setAdapter(adapter);

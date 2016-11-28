@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.seunggabi.mju_success_network.R;
+import com.seunggabi.mju_success_network.helper.Tool;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 public class ChattingViewAdapter extends BaseAdapter {
     private Context context;
-    private ChatListViewHolder holder;
+    private ChattingViewHolder holder;
     public ArrayList<ChattingData> dataList;
 
 
@@ -46,20 +47,20 @@ public class ChattingViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.chat_list_item, null);
+            convertView = inflater.inflate(R.layout.chatting_item, null);
 
-            holder = new ChatListViewHolder();
+            holder = new ChattingViewHolder();
             holder.u_name = (TextView) convertView.findViewById(R.id.u_name);
             holder.l_time = (TextView) convertView.findViewById(R.id.l_time);
             holder.l_content = (TextView) convertView.findViewById(R.id.l_content);
             convertView.setTag(holder);
         } else {
-            holder = (ChatListViewHolder) convertView.getTag();
+            holder = (ChattingViewHolder) convertView.getTag();
         }
 
         ChattingData data = dataList.get(position);
         holder.u_name.setText(data.getU_name());
-        holder.l_time.setText(data.getL_time().toString());
+        holder.l_time.setText(Tool.getInstance().getDateString(data.getL_time()));
         holder.l_content.setText(data.getL_content());
 
         return convertView;
