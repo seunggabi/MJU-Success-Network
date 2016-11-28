@@ -8,11 +8,11 @@ import com.seunggabi.mju_success_network.R;
  * Created by USER on 2016-11-20.
  */
 
-public class ChattingActivity extends ParentActivity {
+public class JoinActivity extends ParentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatting);
+        setContentView(R.layout.activity_join);
     }
 }

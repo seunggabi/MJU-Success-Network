@@ -42,7 +42,7 @@ public class ParentActivity extends AppCompatActivity {
     }
 
     public void goChatting(View view){
-        Intent intent = new Intent(this, ChattingActivity.class);
+        Intent intent = new Intent(this, JoinActivity.class);
         startActivity(intent);
     }
 

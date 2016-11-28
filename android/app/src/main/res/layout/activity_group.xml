@@ -50,4 +50,47 @@
         android:layout_toStartOf="@+id/chat"
         android:layout_marginEnd="89dp" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/chat"
+        android:layout_marginTop="43dp"
+        android:layout_alignParentBottom="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send"
+        android:layout_below="@+id/chat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/notice"
+        android:layout_toLeftOf="@+id/notice" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendButton"
+        android:onClick="search"
+        android:layout_alignBottom="@+id/send"
+        android:layout_toRightOf="@+id/chat"
+        android:layout_toEndOf="@+id/chat" />
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/joinListButton"
+        android:onClick="groupAdd"
+        android:layout_alignBaseline="@+id/sendButton"
+        android:layout_alignBottom="@+id/sendButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/notice"
+        android:layout_toEndOf="@+id/notice" />
+
 </RelativeLayout>
