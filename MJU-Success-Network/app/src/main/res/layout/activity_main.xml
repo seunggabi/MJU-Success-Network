@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gr"
+        android:onClick="goChatting"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/chat" />
+
+    <Button
+        android:text="Notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/chat"
+        android:onClick="goNotice"
+        android:id="@+id/notice" />
+
+    <Button
+        android:text="Set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/notice"
+        android:onClick="goSetting"
+        android:id="@+id/set" />
+
+    <Button
+        android:text="Gr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gr"
+        android:onClick="goGroup"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/chat"
+        android:layout_alignBottom="@+id/notice" />
+
+    <Button
+        android:text="My"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/my"
+        android:onClick="goProfile"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/chat"
+        android:layout_marginEnd="89dp" />
+
+    <Button
+        android:text="저장"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveButton"
+        android:onClick="editUser"
+        android:layout_below="@+id/IntroTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_below="@+id/email"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/phone"
+        android:layout_alignStart="@+id/phone" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameTextView"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignRight="@+id/phoneTextView"
+        android:layout_alignEnd="@+id/phoneTextView" />
+
+    <TextView
+        android:text="Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneTextView"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:layout_alignBaseline="@+id/phoneTextView"
+        android:layout_alignBottom="@+id/phoneTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/intro"
+        android:layout_alignStart="@+id/intro" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/intro"
+        android:layout_alignBaseline="@+id/IntroTextView"
+        android:layout_alignBottom="@+id/IntroTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/phoneTextView"
+        android:layout_toEndOf="@+id/phoneTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/IntroTextView"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/phone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Dept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/dept"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/deptTextView" />
+
+    <TextView
+        android:text="Pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/pos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/posTextView" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/dept"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/intro"
+        android:layout_alignLeft="@+id/intro"
+        android:layout_alignStart="@+id/intro" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pos"
+        android:layout_below="@+id/dept"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
+        android:layout_alignLeft="@+id/intro"
+        android:layout_alignStart="@+id/intro" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_below="@+id/chat"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+    <TextView
+        android:text="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailTextView"
+        android:layout_alignBaseline="@+id/email"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

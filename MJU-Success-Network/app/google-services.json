@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "247665193989",
+    "firebase_url": "https://mju-success-network.firebaseio.com",
+    "project_id": "mju-success-network",
+    "storage_bucket": "mju-success-network.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247665193989:android:fefe41a6bff2879e",
+        "android_client_info": {
+          "package_name": "com.seunggabi.mju_success_network_fcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247665193989-l1e83ra9no04qaao671agid4flvdh3vq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj06RqaRl7s2uAunWpJzjg2-mpNqxc--o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247665193989:android:720b1b0bce4d0341",
+        "android_client_info": {
+          "package_name": "com.seunggabi.mju_success_network"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247665193989-l1e83ra9no04qaao671agid4flvdh3vq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj06RqaRl7s2uAunWpJzjg2-mpNqxc--o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

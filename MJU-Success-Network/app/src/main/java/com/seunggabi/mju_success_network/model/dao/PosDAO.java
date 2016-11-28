@@ -3,8 +3,8 @@ package com.seunggabi.mju_success_network.model.dao;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.seunggabi.mju_success_network_fcm.model.DBConfiguration;
-import com.seunggabi.mju_success_network_fcm.model.bean.Pos;
+import com.seunggabi.mju_success_network.model.DBConfiguration;
+import com.seunggabi.mju_success_network.model.bean.Pos;
 
 import java.util.ArrayList;
 

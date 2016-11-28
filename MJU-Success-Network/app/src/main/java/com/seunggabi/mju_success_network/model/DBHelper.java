@@ -20,8 +20,6 @@ public class DBHelper extends SQLiteOpenHelper {
         DBTool.getInstance().dropTables(db);
         DBTool.getInstance().createTables(db);
         DBTool.getInstance().insertTables(db);
-
-        Log.i("debug seunggabi", "Install DB");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
