@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 
@@ -35,7 +35,7 @@ public class GroupAddActivity extends AppCompatActivity {
 
         data.put("token", FirebaseInstanceId.getInstance().getToken());
 
-        String url = "http://"+ Constans.IP+"/fcm/group.php?mode=add";
+        String url = "http://"+ Constants.IP+"/fcm/group.php?mode=add";
         Tool.getInstance().sendToServer(data, url);
         Tool.getInstance().toast("생성되었습니다.", this);
     }

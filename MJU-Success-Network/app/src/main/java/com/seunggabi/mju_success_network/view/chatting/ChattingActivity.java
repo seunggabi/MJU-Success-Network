@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.view.group.GroupData;
@@ -32,11 +32,11 @@ public class ChattingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_list);
+        setContentView(R.layout.activity_chatting);
         Tool.getInstance().getUser(this);
 
         Intent intent = getIntent();
-        groupData = (GroupData)intent.getSerializableExtra("GroupListData");
+        groupData = (GroupData)intent.getSerializableExtra("GroupData");
 
         send = (TextView)findViewById(R.id.send);
         listView = (ListView)findViewById(R.id.listView);
@@ -52,13 +52,6 @@ public class ChattingActivity extends AppCompatActivity {
 //                startActivity(intent);
             }
         });
-
-        listView.post(new Runnable() {
-            @Override
-            public void run() {
-                listView.setSelection(adapter.getCount()-1);
-            }
-        });
     }
 
     @Override
@@ -72,7 +65,7 @@ public class ChattingActivity extends AppCompatActivity {
         HashMap<String, String> data = new HashMap<String, String>();
         data.put("g_id", String.valueOf(groupData.getG_id()));
         data.put("token", FirebaseInstanceId.getInstance().getToken());
-        String url = "http://"+ Constans.IP+"/api/chat.php";
+        String url = "http://"+ Constants.IP+"/api/chat.php";
         JSONArray array = null;
 
         if(Tool.getInstance().isNetwork(this))
@@ -82,30 +75,37 @@ public class ChattingActivity extends AppCompatActivity {
             for (int i = 0; i < array.length(); i++) {
                 try {
                     JSONObject obj = array.getJSONObject(i);
-                    ChattingData ChatListdata = new ChattingData();
-                    ChatListdata.setU_id(Integer.parseInt(obj.getString("u_id")));
-                    ChatListdata.setU_name(obj.getString("u_name"));
-                    ChatListdata.setL_time(obj.getString("l_time"));
-                    ChatListdata.setL_content(obj.getString("l_content"));
-                    adapter.addItem(ChatListdata);
+                    ChattingData chattingData = new ChattingData();
+                    chattingData.setU_id(Integer.parseInt(obj.getString("u_id")));
+                    chattingData.setU_name(obj.getString("u_name"));
+                    chattingData.setL_time(obj.getString("l_time"));
+                    chattingData.setL_content(obj.getString("l_content"));
+                    adapter.addItem(chattingData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
+        findViewById(R.id.layout).requestLayout();
+        listView.post(new Runnable() {
+            @Override
+            public void run() {
+                listView.setSelection(adapter.getCount()-1);
+            }
+        });
     }
 
     public void send(View view) {
         HashMap<String, String> data = new HashMap<String, String>();
         data.put("g_id", String.valueOf(groupData.getG_id()));
         data.put("content", String.valueOf(send.getText()));
-        data.put("u_name", Constans.user.getName());
+        data.put("u_name", Constants.user.getName());
         data.put("token", FirebaseInstanceId.getInstance().getToken());
-        String url = "http://"+ Constans.IP+"/fcm/send.php";
+        String url = "http://"+ Constants.IP+"/fcm/send.php";
 
         if(Tool.getInstance().isNetwork(this))
             Tool.getInstance().getToServer(data, url);
 
-        Tool.getInstance().reload(this);
+        reload();
     }
 }

@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.view.group.GroupAddActivity;
@@ -58,14 +58,9 @@ public class GroupActivity extends ParentActivity {
         super.onResume();
     }
 
-    public void groupAdd(View view) {
-        Intent intent = new Intent(this, GroupAddActivity.class);
-        startActivity(intent);
-    }
-
     public void reload() {
         adapter.clear();
-        String url = "http://"+ Constans.IP+"/api/group.php?search="+search.getText();
+        String url = "http://"+ Constants.IP+"/api/group.php?search="+search.getText();
         JSONArray array = null;
         if(Tool.getInstance().isNetwork(this))
             array = Tool.getInstance().getToServer(null, url);
@@ -90,15 +85,11 @@ public class GroupActivity extends ParentActivity {
                 }
             }
         }
+        findViewById(R.id.layout).requestLayout();
     }
 
-    public void Group(View view) {
-        Intent intent = new Intent(this, GroupActivity.class);
-        startActivity(intent);
-    }
-
-    public void main(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void groupAdd(View view) {
+        Intent intent = new Intent(this, GroupAddActivity.class);
         startActivity(intent);
     }
 

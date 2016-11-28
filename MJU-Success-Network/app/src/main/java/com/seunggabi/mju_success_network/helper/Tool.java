@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.model.bean.User;
 
 import org.json.JSONArray;
@@ -119,7 +119,7 @@ public class Tool {
     }
 
     public void getUser(Context context) {
-        String url = "http://" + Constans.IP + "/api/user.php?mode=get";
+        String url = "http://" + Constants.IP + "/api/user.php?mode=get";
         User user = null;
         JSONArray array = null;
         HashMap<String, String> data = new HashMap<String, String>();
@@ -147,7 +147,7 @@ public class Tool {
                     e.printStackTrace();
                 }
             }
-            Constans.user = user;
+            Constants.user = user;
         }
     }
 }

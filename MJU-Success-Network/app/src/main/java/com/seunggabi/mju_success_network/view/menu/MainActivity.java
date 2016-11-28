@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.model.DBTool;
@@ -109,18 +109,20 @@ public class MainActivity extends ParentActivity {
 
         data.put("token", FirebaseInstanceId.getInstance().getToken());
 
-        String url = "http://"+ Constans.IP+"/fcm/user.php?mode=add";
+        String url = "http://"+ Constants.IP+"/fcm/user.php?mode=add";
         Tool.getInstance().sendToServer(data, url);
         Tool.getInstance().toast("저장되었습니다.", this);
     }
 
     public void getUser() {
         Tool.getInstance().getUser(this);
-        email.setText(Constans.user.getEmail());
-        name.setText(Constans.user.getName());
-        phone.setText(Constans.user.getPhone());
-        intro.setText(Constans.user.getIntro());
-        deptSpinner.setSelection(Constans.user.getD_id()-1);
-        posSpinner.setSelection(Constans.user.getP_id()-1);
+        if(Constants.user != null) {
+            email.setText(Constants.user.getEmail());
+            name.setText(Constants.user.getName());
+            phone.setText(Constants.user.getPhone());
+            intro.setText(Constants.user.getIntro());
+            deptSpinner.setSelection(Constants.user.getD_id() - 1);
+            posSpinner.setSelection(Constants.user.getP_id() - 1);
+        }
     }
 }

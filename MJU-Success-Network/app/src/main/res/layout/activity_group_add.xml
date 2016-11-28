@@ -27,8 +27,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/joinListButton"
-        android:layout_toEndOf="@+id/joinListButton" />
+        android:layout_toEndOf="@+id/nameTextView"
+        android:layout_toRightOf="@+id/nameTextView"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp" />
 
     <TextView
         android:text="Intro"

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 
 import java.io.IOException;
 
@@ -35,7 +35,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://"+ Constans.IP+"/fcm/register.php")
+                .url("http://"+ Constants.IP+"/fcm/register.php")
                 .post(body)
                 .build();
 

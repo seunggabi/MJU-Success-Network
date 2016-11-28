@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/layout">
 
     <Button
         android:text="Chat"
@@ -19,7 +20,8 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/chat"
         android:onClick="goNotice"
-        android:id="@+id/notice" />
+        android:id="@+id/notice"
+        android:layout_toRightOf="@+id/chat" />
 
     <Button
         android:text="Set"
@@ -28,7 +30,8 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/notice"
         android:onClick="goSetting"
-        android:id="@+id/set" />
+        android:id="@+id/set"
+        android:layout_toRightOf="@+id/notice" />
 
     <Button
         android:text="Gr"
@@ -38,7 +41,8 @@
         android:onClick="goGroup"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/chat"
-        android:layout_alignBottom="@+id/notice" />
+        android:layout_alignBottom="@+id/notice"
+        android:layout_toLeftOf="@+id/chat" />
 
     <Button
         android:text="My"
@@ -48,6 +52,36 @@
         android:onClick="goProfile"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/chat"
-        android:layout_marginEnd="89dp" />
+        android:layout_marginEnd="89dp"
+        android:layout_toLeftOf="@+id/chat" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sendButton"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendButton"
+        android:onClick="search"
+        android:layout_below="@+id/notice"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send"
+        android:layout_alignBottom="@+id/sendButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/sendButton"
+        android:layout_toStartOf="@+id/sendButton" />
 
 </RelativeLayout>

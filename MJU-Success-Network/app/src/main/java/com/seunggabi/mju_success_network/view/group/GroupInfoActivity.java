@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.seunggabi.mju_success_network.Constans;
+import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.view.chatting.ChattingActivity;
@@ -25,6 +25,7 @@ public class GroupInfoActivity extends AppCompatActivity {
     Button editButton;
     Button joinButton;
     Button exitButton;
+    Button enterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class GroupInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         GroupData = (GroupData)intent.getSerializableExtra("GroupData");
 
-        String url = "http://"+ Constans.IP+"/api/join.php?mode=check";
+        String url = "http://"+ Constants.IP+"/api/join.php?mode=check";
         HashMap<String, String> data = new HashMap<String, String>();
         JSONArray array = null;
 
@@ -47,17 +48,18 @@ public class GroupInfoActivity extends AppCompatActivity {
         editButton = (Button)findViewById(R.id.editButton);
         joinButton = (Button)findViewById(R.id.joinButton);
         exitButton = (Button)findViewById(R.id.exitButton);
+        enterButton = (Button)findViewById(R.id.enterButton);
 
         name.setText(GroupData.getG_name());
         intro.setText(GroupData.getG_intro());
 
         try {
             int check = array.getJSONObject(0).getInt("check");
-            if(Constans.user.getId() != GroupData.getU_id()) {
+            if(Constants.user.getId() != GroupData.getU_id()) {
                 editButton.setVisibility(View.INVISIBLE);
             }
             switch (check) {
-                case 0: exitButton.setVisibility(View.INVISIBLE); break;
+                case 0: exitButton.setVisibility(View.INVISIBLE); enterButton.setVisibility(View.INVISIBLE); break;
                 case 1: joinButton.setVisibility(View.INVISIBLE); break;
             }
         } catch (JSONException e) {
@@ -70,7 +72,7 @@ public class GroupInfoActivity extends AppCompatActivity {
         data.put("g_id", String.valueOf(GroupData.getG_id()));
         data.put("token", FirebaseInstanceId.getInstance().getToken());
 
-        String url = "http://"+ Constans.IP+"/fcm/group.php?mode=join";
+        String url = "http://"+ Constants.IP+"/fcm/group.php?mode=join";
         Tool.getInstance().sendToServer(data, url);
         Tool.getInstance().toast("그룹에 참가했습니다.", this);
         Tool.getInstance().reload(this);
@@ -86,7 +88,7 @@ public class GroupInfoActivity extends AppCompatActivity {
         data.put("g_id", String.valueOf(GroupData.getG_id()));
         data.put("token", FirebaseInstanceId.getInstance().getToken());
 
-        String url = "http://"+ Constans.IP+"/fcm/group.php?mode=exit";
+        String url = "http://"+ Constants.IP+"/fcm/group.php?mode=exit";
         Tool.getInstance().sendToServer(data, url);
         Tool.getInstance().toast("그룹에서 나왔습니다.", this);
         Tool.getInstance().reload(this);
