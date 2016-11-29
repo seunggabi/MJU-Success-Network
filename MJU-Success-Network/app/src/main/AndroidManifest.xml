@@ -32,21 +32,37 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".fcm.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".view.group.GroupInfoActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.group.GroupAddActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.group.GroupEditActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.menu.GroupActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.menu.JoinActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.menu.NoticeActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.menu.SettingActivity" android:launchMode="singleInstance" />
-        <activity android:name=".view.chatting.ChattingActivity" android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.group.GroupInfoActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.group.GroupAddActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.group.GroupEditActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.menu.GroupActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.menu.JoinActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.menu.NoticeActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.menu.SettingActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.chatting.ChattingActivity"
+            android:launchMode="singleInstance" />
+        <activity android:name=".view.chatting.ChattingUserActivity"></activity>
     </application>
 
 </manifest>

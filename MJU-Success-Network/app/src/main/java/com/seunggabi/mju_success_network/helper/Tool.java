@@ -36,19 +36,23 @@ import static android.widget.Toast.LENGTH_LONG;
 public class Tool {
     private static Tool tool;
 
-    private Tool() {};
+    private Tool() {
+    }
+
+    ;
 
     public static Tool getInstance() {
-        if(tool == null) {
+        if (tool == null) {
             tool = new Tool();
         }
         return tool;
     }
+
     public boolean isInteger(String s, Context context) {
         try {
             int num = Integer.parseInt(s);
             return true;
-        } catch(Exception e) {
+        } catch (Exception e) {
             Toast.makeText(context, "숫자만 입력 가능합니다!", LENGTH_LONG).show();
             return false;
         }
@@ -158,5 +162,9 @@ public class Tool {
     public String getDateString(Date date) {
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return transFormat.format(date);
+    }
+
+    public char toggleYN(char yn) {
+        return yn == 'Y' ? 'N' : 'Y';
     }
 }

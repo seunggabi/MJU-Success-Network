@@ -20,8 +20,9 @@ public class GroupData implements Serializable {
     private String g_status;
     private String g_hidden;
     private String g_tag;
+    private char j_alarm;
 
-    public GroupData(int u_id, int g_id, String u_name, String g_name, String g_intro, String g_time, String g_status, String g_hidden, String g_tag) {
+    public GroupData(int u_id, int g_id, String u_name, String g_name, String g_intro, String g_time, String g_status, String g_hidden, String g_tag, char j_alarm) {
         this.u_id = u_id;
         this.g_id = g_id;
         this.u_name = u_name;
@@ -30,6 +31,7 @@ public class GroupData implements Serializable {
         this.g_status = g_status;
         this.g_hidden = g_hidden;
         this.g_tag = g_tag;
+        this.j_alarm = j_alarm;
 
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = null;
@@ -118,5 +120,13 @@ public class GroupData implements Serializable {
 
     public void setG_hidden(String g_hidden) {
         this.g_hidden = g_hidden;
+    }
+
+    public char getJ_alarm() {
+        return j_alarm;
+    }
+
+    public void setJ_alarm(char j_alarm) {
+        this.j_alarm = j_alarm;
     }
 }

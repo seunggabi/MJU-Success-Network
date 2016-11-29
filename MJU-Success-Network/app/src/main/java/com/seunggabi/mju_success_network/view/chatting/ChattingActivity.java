@@ -43,7 +43,7 @@ public class ChattingActivity extends AppCompatActivity {
         groupData = (GroupData)intent.getSerializableExtra("GroupData");
         prefs = getSharedPreferences("chattingPrefs", MODE_PRIVATE);
 
-        send = (TextView)findViewById(R.id.search);
+        send = (TextView)findViewById(R.id.send);
         listView = (ListView)findViewById(R.id.listView);
         adapter = new ChattingViewAdapter(this);
         listView.setAdapter(adapter);
@@ -51,10 +51,6 @@ public class ChattingActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-//                ChatListData data = adapter.dataList.get(position);
-//                Intent intent = new Intent(me, GroupInfoActivity.class);
-//                intent.putExtra("ChatListData", (Serializable) data);
-//                startActivity(intent);
             }
         });
     }
@@ -120,7 +116,7 @@ public class ChattingActivity extends AppCompatActivity {
 
         if(Tool.getInstance().isNetwork(this))
             Tool.getInstance().getToServer(data, url);
-
+        send.setText("");
         reload();
     }
 
@@ -132,18 +128,18 @@ public class ChattingActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-//        Log.d("test", "onPrepareOptionsMenu - 옵션메뉴가 " +
-//                "화면에 보여질때 마다 호출됨");
-//        if(bLog){ // 로그인 한 상태: 로그인은 안보이게, 로그아웃은 보이게
-//            menu.getItem(0).setEnabled(true);
-//            menu.getItem(1).setEnabled(false);
-//        }else{ // 로그 아웃 한 상태 : 로그인 보이게, 로그아웃은 안보이게
-//            menu.getItem(0).setEnabled(false);
-//            menu.getItem(1).setEnabled(true);
-//        }
-//
-//        bLog = !bLog;   // 값을 반대로 바꿈
-
+        if(groupData.getJ_alarm() == 'N'){
+            menu.getItem(1).setVisible(true);
+            menu.getItem(0).setVisible(false);
+        }else{
+            menu.getItem(1).setVisible(false);
+            menu.getItem(0).setVisible(true);
+        }
+        if(groupData.getU_id() == Constants.user.getId()) {
+            menu.getItem(2).setVisible(true);
+        } else {
+            menu.getItem(2).setVisible(false);
+        }
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -153,10 +149,27 @@ public class ChattingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch(id) {
-            case R.id.user: break;
+            case R.id.user:
+                Intent intent = new Intent(this, ChattingUserActivity.class);
+                intent.putExtra("GroupData", groupData);
+                startActivity(intent);
+                break;
             case R.id.make: break;
             case R.id.view: break;
+            default: changeAlarm();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void changeAlarm() {
+        HashMap<String, String> data = new HashMap<String, String>();
+        data.put("g_id", String.valueOf(groupData.getG_id()));
+        data.put("token", FirebaseInstanceId.getInstance().getToken());
+        String url = "http://"+ Constants.IP+"/fcm/join.php?mode=changeAlarm";
+
+        if(Tool.getInstance().isNetwork(this))
+            Tool.getInstance().getToServer(data, url);
+
+        groupData.setJ_alarm(Tool.getInstance().toggleYN(groupData.getJ_alarm()));
     }
 }

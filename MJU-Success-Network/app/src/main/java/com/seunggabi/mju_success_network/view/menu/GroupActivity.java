@@ -69,17 +69,17 @@ public class GroupActivity extends ParentActivity {
             for (int i = 0; i < array.length(); i++) {
                 try {
                     JSONObject obj = array.getJSONObject(i);
-                    GroupData Groupdata = new GroupData();
-                    Groupdata.setU_id(Integer.parseInt(obj.getString("u_id")));
-                    Groupdata.setG_id(Integer.parseInt(obj.getString("g_id")));
-                    Groupdata.setU_name(obj.getString("u_name"));
-                    Groupdata.setG_name(obj.getString("g_name"));
-                    Groupdata.setG_intro(obj.getString("g_intro"));
-                    Groupdata.setG_time(obj.getString("g_time"));
-                    Groupdata.setG_status(obj.getString("g_status"));
-                    Groupdata.setG_hidden(obj.getString("g_hidden"));
-                    Groupdata.setG_tag(obj.getString("g_tag"));
-                    adapter.addItem(Groupdata);
+                    GroupData groupData = new GroupData();
+                    groupData.setU_id(Integer.parseInt(obj.getString("u_id")));
+                    groupData.setG_id(Integer.parseInt(obj.getString("g_id")));
+                    groupData.setU_name(obj.getString("u_name"));
+                    groupData.setG_name(obj.getString("g_name"));
+                    groupData.setG_intro(obj.getString("g_intro"));
+                    groupData.setG_time(obj.getString("g_time"));
+                    groupData.setG_status(obj.getString("g_status"));
+                    groupData.setG_hidden(obj.getString("g_hidden"));
+                    groupData.setG_tag(obj.getString("g_tag"));
+                    adapter.addItem(groupData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -1,7 +1,8 @@
-package com.seunggabi.mju_success_network.view.menu;
+package com.seunggabi.mju_success_network.view.chatting;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
+import com.seunggabi.mju_success_network.view.group.GroupAddActivity;
 import com.seunggabi.mju_success_network.view.group.GroupData;
 import com.seunggabi.mju_success_network.view.group.GroupInfoActivity;
 import com.seunggabi.mju_success_network.view.group.GroupViewAdapter;
@@ -23,32 +25,27 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.HashMap;
 
-/**
- * Created by USER on 2016-11-20.
- */
-
-public class JoinActivity extends ParentActivity {
-    private TextView search;
+public class ChattingUserActivity extends AppCompatActivity {
+    private GroupData groupData;
     private ListView listView;
-    private GroupViewAdapter adapter;
+    private ChattingUserViewAdapter adapter;
     private Context me = this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
-        search = (TextView)findViewById(R.id.search);
+        setContentView(R.layout.activity_chatting_user);
+
+        Intent intent = getIntent();
+        groupData = (GroupData)intent.getSerializableExtra("GroupData");
+
         listView = (ListView)findViewById(R.id.listView);
-        adapter = new GroupViewAdapter(this);
+        adapter = new ChattingUserViewAdapter(this);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                GroupData data = adapter.dataList.get(position);
-                Intent intent = new Intent(me, GroupInfoActivity.class);
-                intent.putExtra("GroupData", (Serializable) data);
-                startActivity(intent);
             }
         });
     }
@@ -61,12 +58,12 @@ public class JoinActivity extends ParentActivity {
 
     public void reload() {
         adapter.clear();
-        String url = "http://"+ Constants.IP+"/api/join.php?mode=get";
         HashMap<String, String> data = new HashMap<String, String>();
+        data.put("g_id", String.valueOf(groupData.getG_id()));
+        data.put("token", FirebaseInstanceId.getInstance().getToken());
+        String url = "http://"+ Constants.IP+"/api/join.php?mode=getUserList";
         JSONArray array = null;
 
-        data.put("token", FirebaseInstanceId.getInstance().getToken());
-        data.put("search", search.getText().toString());
         if(Tool.getInstance().isNetwork(this))
             array = Tool.getInstance().getToServer(data, url);
 
@@ -74,24 +71,27 @@ public class JoinActivity extends ParentActivity {
             for (int i = 0; i < array.length(); i++) {
                 try {
                     JSONObject obj = array.getJSONObject(i);
-                    GroupData groupData = new GroupData();
-                    groupData.setU_id(Integer.parseInt(obj.getString("u_id")));
-                    groupData.setG_id(Integer.parseInt(obj.getString("g_id")));
-                    groupData.setU_name(obj.getString("u_name"));
-                    groupData.setG_name(obj.getString("g_name"));
-                    groupData.setG_intro(obj.getString("g_intro"));
-                    groupData.setG_time(obj.getString("g_time"));
-                    groupData.setG_status(obj.getString("g_status"));
-                    groupData.setG_hidden(obj.getString("g_hidden"));
-                    groupData.setG_tag(obj.getString("g_tag"));
-                    groupData.setJ_alarm(obj.getString("j_alarm").charAt(0));
-                    adapter.addItem(groupData);
+                    ChattingUserData chattingUserData = new ChattingUserData();
+                    chattingUserData.setJ_id(Integer.parseInt(obj.getString("j_id")));
+                    chattingUserData.setU_id(Integer.parseInt(obj.getString("u_id")));
+                    chattingUserData.setG_id(Integer.parseInt(obj.getString("g_id")));
+                    chattingUserData.setU_name(obj.getString("u_name"));
+                    chattingUserData.setJ_status(obj.getString("j_status").charAt(0));
+                    chattingUserData.setJ_time(obj.getString("j_time"));
+
+                    if(Constants.user.getId() != chattingUserData.getU_id())
+                        adapter.addItem(chattingUserData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
         findViewById(R.id.layout).requestLayout();
+    }
+
+    public void groupAdd(View view) {
+        Intent intent = new Intent(this, GroupAddActivity.class);
+        startActivity(intent);
     }
 
     public void search(View view) {

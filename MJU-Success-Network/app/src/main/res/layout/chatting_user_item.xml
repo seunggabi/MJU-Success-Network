@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="383dp"
+        android:layout_height="50dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/u_name"
+            android:layout_width="198dp"
+            android:layout_height="51dp" />
+
+        <Button
+            android:id="@+id/ban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="차단"/>
+
+        <Button
+            android:id="@+id/allow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="허용"/>
+
+    </LinearLayout>
+
+</LinearLayout>
