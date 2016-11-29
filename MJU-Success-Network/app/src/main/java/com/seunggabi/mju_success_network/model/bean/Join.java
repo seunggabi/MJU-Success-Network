@@ -10,6 +10,7 @@ public class Join {
     private int g_id;
     private int u_id;
     private char status;
+    private char alarm;
 
     public Join(int id, String time, int g_id, int u_id, char status) {
         this.id = id;

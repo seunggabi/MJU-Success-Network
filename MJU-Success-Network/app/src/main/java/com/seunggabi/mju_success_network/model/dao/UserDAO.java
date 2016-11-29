@@ -17,6 +17,7 @@ public class UserDAO extends DAO {
                 + ", u_phone VARCHAR(255)"
                 + ", u_intro TEXT"
                 + ", u_level INTEGER"
+                + ", u_alarm CHAR(1) DEFAULT 'Y'"
                 + ", token VARCHAR(200) NOT NULL"
                 + ", d_id INTEGER"
                 + ", p_id INTEGER"

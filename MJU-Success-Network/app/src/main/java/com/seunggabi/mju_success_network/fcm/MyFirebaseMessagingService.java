@@ -26,6 +26,8 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     private String name;
     private String type;
     private String g_name;
+    private String u_alarm;
+    private String j_alarm;
     private String message;
 
     private Uri defaultSoundUri;
@@ -45,12 +47,15 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         name = remoteMessage.getData().get("name");
         type = remoteMessage.getData().get("type");
         message = remoteMessage.getData().get("message");
+        u_alarm = remoteMessage.getData().get("u_alarm");
+        j_alarm = remoteMessage.getData().get("j_alarm");
 
         if(type.equals("chatting")) {
             g_id = Integer.parseInt(remoteMessage.getData().get("g_id"));
             g_name = remoteMessage.getData().get("g_name");
         }
-        sendNotification();
+        if(u_alarm.equals("Y") && j_alarm.equals("Y"))
+            sendNotification();
     }
 
     private void sendNotification() {

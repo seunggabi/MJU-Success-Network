@@ -146,6 +146,7 @@ public class Tool {
                     user.setP_id(Integer.parseInt(obj.getString("p_id")));
                     user.setD_id(Integer.parseInt(obj.getString("d_id")));
                     user.setPhone(obj.getString("u_phone"));
+                    user.setAlarm(obj.getString("u_alarm").charAt(0));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

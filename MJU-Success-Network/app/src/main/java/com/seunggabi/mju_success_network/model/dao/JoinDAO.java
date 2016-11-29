@@ -15,6 +15,7 @@ public class JoinDAO extends DAO {
                 + ", g_id INTEGER NOT NULL"
                 + ", u_id INTEGER NOT NULL"
                 + ", j_hidden CHAR(1) DEFAULT 'Y'"
+                + ", j_alarm CHAR(1) DEFAULT 'Y'"
 
                 + ", UNIQUE(g_id, u_id)"
                 + ");";
