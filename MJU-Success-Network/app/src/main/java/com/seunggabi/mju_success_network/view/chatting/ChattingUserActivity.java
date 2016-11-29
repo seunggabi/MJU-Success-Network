@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -35,10 +36,8 @@ public class ChattingUserActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting_user);
-
         Intent intent = getIntent();
         groupData = (GroupData)intent.getSerializableExtra("GroupData");
-
         listView = (ListView)findViewById(R.id.listView);
         adapter = new ChattingUserViewAdapter(this);
         listView.setAdapter(adapter);
@@ -46,6 +45,7 @@ public class ChattingUserActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                changeStatus(position);
             }
         });
     }
@@ -89,12 +89,22 @@ public class ChattingUserActivity extends AppCompatActivity {
         findViewById(R.id.layout).requestLayout();
     }
 
-    public void groupAdd(View view) {
-        Intent intent = new Intent(this, GroupAddActivity.class);
-        startActivity(intent);
-    }
-
     public void search(View view) {
         reload();
+    }
+
+    public void changeStatus(int pos) {
+        ChattingUserData chattingUserData = adapter.dataList.get(pos);
+        chattingUserData.setJ_status(Tool.getInstance().toggleYN(chattingUserData.getJ_status()));
+        HashMap<String, String> data = new HashMap<String, String>();
+        data.put("g_id", String.valueOf(chattingUserData.getG_id()));
+        data.put("u_id", String.valueOf(chattingUserData.getU_id()));
+        data.put("token", FirebaseInstanceId.getInstance().getToken());
+        String url = "http://"+ Constants.IP+"/fcm/join.php?mode=changeStatus";
+
+        if(Tool.getInstance().isNetwork(this))
+            Tool.getInstance().getToServer(data, url);
+
+        Tool.getInstance().reload(this);
     }
 }

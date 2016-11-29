@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="383dp"
         android:layout_height="50dp"
         android:weightSum="1">
@@ -12,20 +12,40 @@
         <TextView
             android:id="@+id/u_name"
             android:layout_width="198dp"
-            android:layout_height="51dp" />
+            android:layout_height="51dp"
+            android:layout_toLeftOf="@+id/ban"
+            android:layout_marginRight="79dp"
+            android:layout_marginEnd="79dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <Button
+        <TextView
             android:id="@+id/ban"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="차단"/>
+            android:text="차단"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="293dp"
+            android:layout_marginStart="293dp" />
 
-        <Button
+        <TextView
             android:id="@+id/allow"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="허용"/>
+            android:text="허용"
+            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/ban"
+            android:layout_alignStart="@+id/ban"
+            android:layout_alignParentBottom="true" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

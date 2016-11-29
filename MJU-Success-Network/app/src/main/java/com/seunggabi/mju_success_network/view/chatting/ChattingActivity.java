@@ -128,7 +128,7 @@ public class ChattingActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if(groupData.getJ_alarm() == 'N'){
+        if(groupData.getJ_alarm() == 'Y'){
             menu.getItem(1).setVisible(true);
             menu.getItem(0).setVisible(false);
         }else{

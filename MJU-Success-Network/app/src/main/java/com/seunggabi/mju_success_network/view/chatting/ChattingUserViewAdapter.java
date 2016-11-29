@@ -52,8 +52,8 @@ public class ChattingUserViewAdapter extends BaseAdapter {
 
             holder = new ChattingUserViewHolder();
             holder.u_name = (TextView) convertView.findViewById(R.id.u_name);
-            holder.ban = (Button) convertView.findViewById(R.id.ban);
-            holder.allow = (Button) convertView.findViewById(R.id.allow);
+            holder.ban = (TextView) convertView.findViewById(R.id.ban);
+            holder.allow = (TextView) convertView.findViewById(R.id.allow);
             convertView.setTag(holder);
         } else {
             holder = (ChattingUserViewHolder) convertView.getTag();

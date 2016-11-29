@@ -9,6 +9,6 @@ import android.widget.TextView;
 
 public class ChattingUserViewHolder {
     public TextView u_name;
-    public Button ban;
-    public Button allow;
+    public TextView ban;
+    public TextView allow;
 }

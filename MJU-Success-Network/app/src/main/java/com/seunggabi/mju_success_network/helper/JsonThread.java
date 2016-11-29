@@ -44,7 +44,6 @@ public class JsonThread extends Thread {
             String responseBody = response.body().string();
             array = new JSONArray(responseBody);
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     public JSONArray getArray() {
