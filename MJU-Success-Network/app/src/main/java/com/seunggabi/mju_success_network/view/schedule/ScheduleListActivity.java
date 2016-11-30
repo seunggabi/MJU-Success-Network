@@ -86,7 +86,7 @@ public class ScheduleListActivity extends AppCompatActivity {
                     scheduleData.setS_gps_logitude(Float.parseFloat(obj.getString("s_gps_logitude")));
                     scheduleData.setS_gps_latitude(Float.parseFloat(obj.getString("s_gps_latitude")));
                     scheduleData.setS_gps_location(obj.getString("s_gps_location"));
-                    scheduleData.setS_gps_location(obj.getString("s_gps_name"));
+                    scheduleData.setS_gps_name(obj.getString("s_gps_name"));
                     adapter.addItem(scheduleData);
                 } catch (JSONException e) {
                     e.printStackTrace();
