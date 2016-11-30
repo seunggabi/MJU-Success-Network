@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +17,7 @@ import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.view.group.GroupData;
+import com.seunggabi.mju_success_network.view.schedule.ScheduleActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -145,16 +145,20 @@ public class ChattingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        Intent intent;
         int id = item.getItemId();
 
         switch(id) {
             case R.id.user:
-                Intent intent = new Intent(this, ChattingUserActivity.class);
+                intent = new Intent(this, ChattingUserActivity.class);
                 intent.putExtra("GroupData", groupData);
                 startActivity(intent);
                 break;
-            case R.id.make: break;
+            case R.id.make:
+                intent = new Intent(this, ScheduleActivity.class);
+                intent.putExtra("GroupData", groupData);
+                startActivity(intent);
+                break;
             case R.id.view: break;
             default: changeAlarm();
         }

@@ -12,7 +12,7 @@ public class ScheduleDAO extends DAO {
         this.create = "CREATE TABLE IF NOT EXISTS `"+ table +"` ("
                 + "s_id INTEGER PRIMARY KEY"
                 + ", s_name VARCHAR(255) NOT NULL"
-                + ", s_intro TEXT  NOT NULL"
+                + ", s_content TEXT  NOT NULL"
                 + ", s_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP"
                 + ", s_datetime DATETIME NOT NULL"
                 + ", s_gps_logitude FLOAT (10, 6) NOT NULL"

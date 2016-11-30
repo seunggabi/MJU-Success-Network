@@ -60,7 +60,7 @@ public class NoticeViewAdapter extends BaseAdapter {
 
         NoticeData data = dataList.get(position);
         holder.m_name.setText(data.getM_name());
-        holder.n_time.setText(Tool.getInstance().getDateString(data.getN_time()));
+        holder.n_time.setText(Tool.getInstance().dateToString(data.getN_time()));
         holder.n_content.setText(data.getN_content());
 
         return convertView;

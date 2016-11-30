@@ -3,8 +3,10 @@
     package="com.seunggabi.mju_success_network">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -62,7 +64,17 @@
         <activity
             android:name=".view.chatting.ChattingActivity"
             android:launchMode="singleInstance" />
-        <activity android:name=".view.chatting.ChattingUserActivity"
+        <activity
+            android:name=".view.chatting.ChattingUserActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.schedule.ScheduleActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.schedule.MapActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.schedule.CheckActivity"
             android:launchMode="singleInstance" />
     </application>
 

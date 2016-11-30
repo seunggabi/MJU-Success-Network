@@ -159,9 +159,19 @@ public class Tool {
         }
     }
 
-    public String getDateString(Date date) {
+    public String dateToString(Date date) {
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return transFormat.format(date);
+    }
+
+    public Date stringToDate(String date) {
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            return transFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public char toggleYN(char yn) {

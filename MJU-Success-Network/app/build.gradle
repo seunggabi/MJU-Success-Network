@@ -28,5 +28,7 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:9.6.1'
     compile 'com.squareup.okhttp3:okhttp:3.3.0'
     compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.naver.maps.open:naver-map-api:2.1.2@aar'
+    compile files('libs/nmaps.jar')
     testCompile 'junit:junit:4.12'
 }
