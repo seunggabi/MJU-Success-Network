@@ -76,6 +76,7 @@
         <activity
             android:name=".view.schedule.CheckActivity"
             android:launchMode="singleInstance" />
+        <activity android:name=".view.schedule.ScheduleListActivity"></activity>
     </application>
 
 </manifest>
