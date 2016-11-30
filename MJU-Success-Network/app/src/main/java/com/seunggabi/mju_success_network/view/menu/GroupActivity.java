@@ -75,7 +75,7 @@ public class GroupActivity extends ParentActivity {
                     groupData.setU_name(obj.getString("u_name"));
                     groupData.setG_name(obj.getString("g_name"));
                     groupData.setG_intro(obj.getString("g_intro"));
-                    groupData.setG_time(obj.getString("g_time"));
+                    groupData.setG_time(Tool.getInstance().stringToDate(obj.getString("g_time")));
                     groupData.setG_status(obj.getString("g_status"));
                     groupData.setG_hidden(obj.getString("g_hidden"));
                     groupData.setG_tag(obj.getString("g_tag"));

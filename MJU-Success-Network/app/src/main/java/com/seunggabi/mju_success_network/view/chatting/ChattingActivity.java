@@ -18,6 +18,7 @@ import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.view.group.GroupData;
 import com.seunggabi.mju_success_network.view.schedule.ScheduleActivity;
+import com.seunggabi.mju_success_network.view.schedule.ScheduleListActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,7 +90,7 @@ public class ChattingActivity extends AppCompatActivity {
                     ChattingData chattingData = new ChattingData();
                     chattingData.setU_id(Integer.parseInt(obj.getString("u_id")));
                     chattingData.setU_name(obj.getString("u_name"));
-                    chattingData.setL_time(obj.getString("l_time"));
+                    chattingData.setL_time(Tool.getInstance().stringToDate(obj.getString("l_time")));
                     chattingData.setL_content(obj.getString("l_content"));
                     adapter.addItem(chattingData);
                 } catch (JSONException e) {
@@ -159,7 +160,11 @@ public class ChattingActivity extends AppCompatActivity {
                 intent.putExtra("GroupData", groupData);
                 startActivity(intent);
                 break;
-            case R.id.view: break;
+            case R.id.view:
+                intent = new Intent(this, ScheduleListActivity.class);
+                intent.putExtra("GroupData", groupData);
+                startActivity(intent);
+                break;
             default: changeAlarm();
         }
         return super.onOptionsItemSelected(item);

@@ -53,7 +53,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
         Init();
         intent = getIntent();
-        groupData = (GroupData) intent.getSerializableExtra("GroupData");
+        groupData = (GroupData)intent.getSerializableExtra("GroupData");
     }
 
     @Override

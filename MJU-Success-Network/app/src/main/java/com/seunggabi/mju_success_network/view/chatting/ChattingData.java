@@ -16,37 +16,6 @@ public class ChattingData implements Serializable {
     private int u_id;
     private String u_name;
 
-    public ChattingData(int l_id, String l_content, String l_time, int u_id, String u_name) {
-        this.l_id = l_id;
-        this.l_content = l_content;
-        this.u_id = u_id;
-        this.u_name = u_name;
-
-        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = null;
-        try {
-            date = transFormat.parse(l_time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.l_time = date;
-    }
-
-    public ChattingData() {
-
-    }
-
-    public void setL_time(String g_time) {
-        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = null;
-        try {
-            date = transFormat.parse(g_time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.l_time = date;
-    }
-
     public int getL_id() {
         return l_id;
     }
@@ -67,6 +36,10 @@ public class ChattingData implements Serializable {
         return l_time;
     }
 
+    public void setL_time(Date l_time) {
+        this.l_time = l_time;
+    }
+
     public int getU_id() {
         return u_id;
     }
@@ -80,6 +53,17 @@ public class ChattingData implements Serializable {
     }
 
     public void setU_name(String u_name) {
+        this.u_name = u_name;
+    }
+
+    public ChattingData(){}
+
+    public ChattingData(int l_id, String l_content, Date l_time, int u_id, String u_name) {
+
+        this.l_id = l_id;
+        this.l_content = l_content;
+        this.l_time = l_time;
+        this.u_id = u_id;
         this.u_name = u_name;
     }
 }

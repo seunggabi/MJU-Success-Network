@@ -7,7 +7,7 @@ import android.widget.TextView;
  */
 
 public class ScheduleViewHolder {
-    public TextView u_name;
-    public TextView ban;
-    public TextView allow;
+    public TextView s_name;
+    public TextView s_content;
+    public TextView s_datetime;
 }

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.seunggabi.mju_success_network.R;
+import com.seunggabi.mju_success_network.helper.Tool;
 
 import java.util.ArrayList;
 
@@ -46,23 +47,21 @@ public class ScheduleViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.chatting_user_item, null);
+            convertView = inflater.inflate(R.layout.schedule_item, null);
 
             holder = new ScheduleViewHolder();
-            holder.u_name = (TextView) convertView.findViewById(R.id.u_name);
-            holder.ban = (TextView) convertView.findViewById(R.id.ban);
-            holder.allow = (TextView) convertView.findViewById(R.id.allow);
+            holder.s_name = (TextView) convertView.findViewById(R.id.s_name);
+            holder.s_content = (TextView) convertView.findViewById(R.id.s_content);
+            holder.s_datetime = (TextView) convertView.findViewById(R.id.s_datetime);
             convertView.setTag(holder);
         } else {
             holder = (ScheduleViewHolder) convertView.getTag();
         }
 
         ScheduleData data = dataList.get(position);
-        holder.u_name.setText(data.getU_name());
-        if(data.getJ_status() == 'Y')
-            holder.allow.setVisibility(View.INVISIBLE);
-        else
-            holder.ban.setVisibility(View.INVISIBLE);
+        holder.s_name.setText(data.getS_name());
+        holder.s_content.setText(data.getS_content());
+        holder.s_datetime.setText(Tool.getInstance().dateToString(data.getS_datetime()));
 
         return convertView;
     }

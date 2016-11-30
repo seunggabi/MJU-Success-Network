@@ -73,10 +73,10 @@
         <activity
             android:name=".view.schedule.MapActivity"
             android:launchMode="singleInstance" />
-        <activity
-            android:name=".view.schedule.CheckActivity"
+        <activity android:name=".view.schedule.ScheduleListActivity"
             android:launchMode="singleInstance" />
-        <activity android:name=".view.schedule.ScheduleListActivity"></activity>
+        <activity android:name=".view.schedule.ScheduleInfoActivity"
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>
