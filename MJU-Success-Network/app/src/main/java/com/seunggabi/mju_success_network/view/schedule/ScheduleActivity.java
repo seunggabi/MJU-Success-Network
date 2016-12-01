@@ -11,7 +11,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.seunggabi.mju_success_network.Constants;
@@ -20,6 +19,7 @@ import com.seunggabi.mju_success_network.helper.Tool;
 import com.seunggabi.mju_success_network.model.bean.Schedule;
 import com.seunggabi.mju_success_network.view.chatting.ChattingActivity;
 import com.seunggabi.mju_success_network.view.group.GroupData;
+import com.seunggabi.mju_success_network.view.map.MapActivity;
 
 import java.util.ArrayList;
 import java.util.Date;

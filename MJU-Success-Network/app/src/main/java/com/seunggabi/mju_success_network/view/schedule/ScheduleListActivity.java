@@ -48,7 +48,8 @@ public class ScheduleListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 ScheduleData data = adapter.dataList.get(position);
                 Intent intent = new Intent(me, ScheduleInfoActivity.class);
-                intent.putExtra("ScheduleData", (Serializable) data);
+                intent.putExtra("GroupData", groupData);
+                intent.putExtra("ScheduleData", data);
                 startActivity(intent);
             }
         });
@@ -58,6 +59,15 @@ public class ScheduleListActivity extends AppCompatActivity {
     protected void onResume() {
         reload();
         super.onResume();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        Tool.getInstance().reload(this);
+
+        onResume();
     }
 
     public void reload() {

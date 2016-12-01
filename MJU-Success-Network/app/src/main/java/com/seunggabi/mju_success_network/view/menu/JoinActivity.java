@@ -47,7 +47,7 @@ public class JoinActivity extends ParentActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 GroupData data = adapter.dataList.get(position);
                 Intent intent = new Intent(me, GroupInfoActivity.class);
-                intent.putExtra("GroupData", (Serializable) data);
+                intent.putExtra("GroupData", data);
                 startActivity(intent);
             }
         });

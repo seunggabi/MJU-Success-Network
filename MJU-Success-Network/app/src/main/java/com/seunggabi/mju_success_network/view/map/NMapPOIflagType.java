@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.seunggabi.mju_success_network.view.schedule;
+package com.seunggabi.mju_success_network.view.map;
 
 /**
  * Wrapper class representing POI flag types on map view.

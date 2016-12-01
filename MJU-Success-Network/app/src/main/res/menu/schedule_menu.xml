@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.chatting.ChattingActivity" >
+
+    <item
+        android:id="@+id/attend"
+        android:orderInCategory="100"
+        android:title="출첵"
+        android:layout_width="wrap_content" />
+
+    <item
+        android:id="@+id/remove"
+        android:orderInCategory="100"
+        android:title="삭제"
+        android:layout_width="wrap_content" />
+
+</menu>

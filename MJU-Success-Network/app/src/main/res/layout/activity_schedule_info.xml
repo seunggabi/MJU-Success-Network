@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_schedule_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,11 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/gps_nameText"
         android:layout_alignBottom="@+id/gps_nameText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/datetimeText"
         android:layout_alignLeft="@+id/gps_location"
-        android:layout_alignStart="@+id/gps_location" />
+        android:layout_alignStart="@+id/gps_location"
+        android:layout_alignRight="@+id/gps_location"
+        android:layout_alignEnd="@+id/gps_location"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp" />
 
     <TextView
         android:id="@+id/gps_location"
@@ -24,9 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/gps_locationText"
         android:layout_alignBottom="@+id/gps_locationText"
-        android:layout_toEndOf="@+id/datetimeText"
         android:layout_alignLeft="@+id/datetime"
-        android:layout_alignStart="@+id/datetime" />
+        android:layout_alignStart="@+id/datetime"
+        android:layout_alignRight="@+id/datetime"
+        android:layout_alignEnd="@+id/datetime" />
 
     <TextView
         android:id="@+id/datetime"
@@ -34,9 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/datetimeText"
         android:layout_alignBottom="@+id/datetimeText"
-        android:layout_toEndOf="@+id/datetimeText"
         android:layout_alignLeft="@+id/content"
-        android:layout_alignStart="@+id/content" />
+        android:layout_alignStart="@+id/content"
+        android:layout_alignRight="@+id/content"
+        android:layout_alignEnd="@+id/content" />
 
     <TextView
         android:id="@+id/content"
@@ -44,9 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/contentText"
         android:layout_alignBottom="@+id/contentText"
-        android:layout_toEndOf="@+id/contentText"
         android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
+        android:layout_alignStart="@+id/name"
+        android:layout_alignRight="@+id/name"
+        android:layout_alignEnd="@+id/name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,10 +66,13 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
         android:layout_marginLeft="49dp"
         android:layout_marginStart="49dp"
-        android:id="@+id/name" />
+        android:id="@+id/name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,16 +107,6 @@
         android:layout_alignStart="@+id/nameText" />
 
     <TextView
-        android:id="@+id/nameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="약속이름"
-        android:layout_marginTop="104dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/datetimeText"
-        android:layout_alignStart="@+id/datetimeText" />
-
-    <TextView
         android:id="@+id/gps_nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,5 +115,37 @@
         android:layout_below="@+id/gps_locationText"
         android:layout_alignLeft="@+id/gps_locationText"
         android:layout_alignStart="@+id/gps_locationText" />
+
+    <com.nhn.android.maps.NMapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mapView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/gps_name"
+        android:layout_marginTop="11dp" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약속이름"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/datetimeText"
+        android:layout_alignStart="@+id/datetimeText"
+        android:layout_marginTop="16dp" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:title="MJU-Success-Network"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
