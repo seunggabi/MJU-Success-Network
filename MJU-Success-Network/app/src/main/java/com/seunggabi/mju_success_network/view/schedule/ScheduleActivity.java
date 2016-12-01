@@ -128,7 +128,7 @@ public class ScheduleActivity extends AppCompatActivity {
         long now = System.currentTimeMillis();
         currentDate = new Date(now);
 
-        if(selectedDate.before(currentDate)) {
+        if(selectedDate.after(currentDate)) {
             if(locationName.getText().length() > 0
                     && name.getText().length() > 0
                     && content.getText().length() > 0
@@ -138,6 +138,7 @@ public class ScheduleActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ChattingActivity.class);
                 selectedDate.setHours(timePicker.getCurrentHour());
                 selectedDate.setMinutes(timePicker.getCurrentMinute());
+                selectedDate.setSeconds(0);
 
                 Schedule schedule = new Schedule();
                 schedule.setDatetime(selectedDate);

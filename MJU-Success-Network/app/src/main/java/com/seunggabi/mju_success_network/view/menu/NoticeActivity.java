@@ -67,7 +67,7 @@ public class NoticeActivity extends ParentActivity {
                     noticeData.setM_id(Integer.parseInt(obj.getString("m_id")));
                     noticeData.setM_name(obj.getString("m_name"));
                     noticeData.setN_content(obj.getString("n_content"));
-                    noticeData.setN_time(obj.getString("n_time"));
+                    noticeData.setN_time(Tool.getInstance().stringToDate(obj.getString("n_time")));
                     adapter.addItem(noticeData);
                 } catch (JSONException e) {
                     e.printStackTrace();

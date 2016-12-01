@@ -3,9 +3,7 @@ package com.seunggabi.mju_success_network.view.schedule;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.internal.app.ToolbarActionBar;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -16,8 +14,7 @@ import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
-import com.seunggabi.mju_success_network.model.bean.Schedule;
-import com.seunggabi.mju_success_network.view.chatting.ChattingUserActivity;
+import com.seunggabi.mju_success_network.view.attend.AttendActivity;
 import com.seunggabi.mju_success_network.view.group.GroupData;
 import com.seunggabi.mju_success_network.view.map.MapParentActivity;
 

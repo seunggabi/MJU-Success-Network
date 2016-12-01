@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature android:name="android.hardware.nfc" />
 
     <application
         android:allowBackup="true"
@@ -79,7 +82,14 @@
         <activity
             android:name=".view.schedule.ScheduleInfoActivity"
             android:launchMode="singleInstance" />
-        <activity android:name=".view.schedule.AttendActivity"></activity>
+        <activity android:name=".view.attend.AttendActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

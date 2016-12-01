@@ -16,35 +16,14 @@ public class NoticeData implements Serializable {
     private int m_id;
     private String m_name;
 
-    public NoticeData(int n_id, String n_content, String n_time, int m_id, String m_name) {
+    public NoticeData() {}
+
+    public NoticeData(int n_id, String n_content, Date n_time, int m_id, String m_name) {
         this.n_id = n_id;
         this.n_content = n_content;
+        this.n_time = n_time;
         this.m_id = m_id;
         this.m_name = m_name;
-
-        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = null;
-        try {
-            date = transFormat.parse(n_time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.n_time = date;
-    }
-
-    public NoticeData() {
-
-    }
-
-    public void setN_time(String g_time) {
-        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = null;
-        try {
-            date = transFormat.parse(g_time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.n_time = date;
     }
 
     public int getN_id() {
@@ -65,6 +44,10 @@ public class NoticeData implements Serializable {
 
     public Date getN_time() {
         return n_time;
+    }
+
+    public void setN_time(Date n_time) {
+        this.n_time = n_time;
     }
 
     public int getM_id() {
