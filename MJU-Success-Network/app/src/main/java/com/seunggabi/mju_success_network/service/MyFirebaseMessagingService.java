@@ -1,4 +1,4 @@
-package com.seunggabi.mju_success_network.fcm;
+package com.seunggabi.mju_success_network.service;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
