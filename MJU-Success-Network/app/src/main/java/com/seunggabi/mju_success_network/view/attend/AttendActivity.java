@@ -61,6 +61,10 @@ public class AttendActivity extends AppCompatActivity implements NfcAdapter.Crea
             }
             mAdapter.setNdefPushMessageCallback(this, this);
             mAdapter.setOnNdefPushCompleteCallback(this, this);
+            Tool.getInstance().toast("[참석자] 핸드폰을 맞대고 화면을 터치해주세요!",this);
+        }
+        else {
+           Tool.getInstance().toast("[주최자] 핸드폰을 맞대고 기다려주세요!",this);
         }
 
         listView = (ListView)findViewById(R.id.listView);

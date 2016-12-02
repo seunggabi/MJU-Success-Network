@@ -43,8 +43,8 @@ public class MainActivity extends ParentActivity {
         DBTool.getInstance().setContentResolver(getContentResolver());
         email = (TextView)findViewById(R.id.email);
         name = (TextView)findViewById(R.id.name);
-        phone = (TextView)findViewById(R.id.intro);
-        intro = (TextView)findViewById(R.id.phone);
+        phone = (TextView)findViewById(R.id.phone);
+        intro = (TextView)findViewById(R.id.intro);
 
         ArrayList<Dept> deptList = DeptDAO.getInstance().getList();
         ArrayList<String> deptNameList = new ArrayList<String>();
@@ -90,6 +90,7 @@ public class MainActivity extends ParentActivity {
 
         deptSpinner.setSelection(2);
         posSpinner.setSelection(0);
+        getUser();
     }
 
     @Override
@@ -112,6 +113,8 @@ public class MainActivity extends ParentActivity {
         String url = "http://"+ Constants.IP+"/fcm/user.php?mode=add";
         Tool.getInstance().sendToServer(data, url);
         Tool.getInstance().toast("저장되었습니다.", this);
+
+        Tool.getInstance().getUser(this);
     }
 
     public void getUser() {
