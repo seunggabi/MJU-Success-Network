@@ -21,7 +21,6 @@
         <activity android:name=".view.menu.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,6 +41,13 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+        <service android:name=".service.ChattingService">
+            <intent-filter>
+                <action android:name="com.seunggabi.mju_success_network.service.chatting" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".service.ChattingBroadcastReceiver"/>
 
         <activity
             android:name=".view.group.GroupInfoActivity"
@@ -66,7 +72,12 @@
             android:launchMode="singleInstance" />
         <activity
             android:name=".view.chatting.ChattingActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="com.seunggabi.mju_success_network.chatting" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.chatting.ChattingUserActivity"
             android:launchMode="singleInstance" />
@@ -87,9 +98,7 @@
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

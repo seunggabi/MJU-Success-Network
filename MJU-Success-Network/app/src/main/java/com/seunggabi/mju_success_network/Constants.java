@@ -7,7 +7,7 @@ import com.seunggabi.mju_success_network.model.bean.User;
  */
 
 public class Constants {
-    public static final String IP = "192.168.0.77";
+    public static final String IP = "192.168.0.4";
     //public static final String IP = "192.168.47.164";
     public static User user;
 }

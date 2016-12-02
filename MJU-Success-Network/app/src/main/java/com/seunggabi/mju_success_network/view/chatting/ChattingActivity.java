@@ -1,9 +1,14 @@
 package com.seunggabi.mju_success_network.view.chatting;
 
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +21,9 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
+import com.seunggabi.mju_success_network.service.ChattingBroadcastReceiver;
+import com.seunggabi.mju_success_network.service.ChattingService;
+import com.seunggabi.mju_success_network.service.MyFirebaseMessagingService;
 import com.seunggabi.mju_success_network.view.group.GroupData;
 import com.seunggabi.mju_success_network.view.schedule.ScheduleActivity;
 import com.seunggabi.mju_success_network.view.schedule.ScheduleListActivity;
@@ -27,12 +35,17 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class ChattingActivity extends AppCompatActivity {
+    private ChattingService service;
+    private BroadcastReceiver broadcastReceiver;
+    private IntentFilter intentFilter;
+
     private GroupData groupData;
     private SharedPreferences prefs;
     private TextView send;
     private ListView listView;
     private ChattingViewAdapter adapter;
     private Context me = this;
+    private boolean bound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +67,30 @@ public class ChattingActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             }
         });
+
+        intentFilter = new IntentFilter();
+        intentFilter.addAction(MyFirebaseMessagingService.CHATTING_ACTTION);
+        broadcastReceiver = new ChattingBroadcastReceiver();
+        registerReceiver(broadcastReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this, ChattingService.class);
+        bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("send", send.getText().toString());
         editor.commit();
+        if(bound) {
+            unbindService(connection);
+            bound = false;
+        }
     }
 
     @Override
@@ -70,6 +98,12 @@ public class ChattingActivity extends AppCompatActivity {
         reload();
         this.send.setText(prefs.getString("send", ""));
         super.onResume();
+    }
+
+    @Override
+    protected  void onDestroy() {
+        unregisterReceiver(broadcastReceiver);
+        super.onDestroy();
     }
 
     public void reload() {
@@ -181,4 +215,18 @@ public class ChattingActivity extends AppCompatActivity {
 
         groupData.setJ_alarm(Tool.getInstance().toggleYN(groupData.getJ_alarm()));
     }
+
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            ChattingService.ChattingBinder binder = (ChattingService.ChattingBinder) iBinder;
+            service = binder.getService();
+            bound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            bound = false;
+        }
+    };
 }

@@ -22,6 +22,8 @@ import com.seunggabi.mju_success_network.view.menu.NoticeActivity;
 
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
     private static final String TAG = "FirebaseMsgService";
+    public static final String CHATTING_SERVICE_ACTTION = "com.seunggabi.mju_success_network.service.chatting";
+    public static final String CHATTING_ACTTION = "com.seunggabi.mju_success_network.chatting";
     private int g_id;
     private String name;
     private String type;
@@ -56,6 +58,8 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         }
         if(u_alarm.equals("Y") && j_alarm.equals("Y"))
             sendNotification();
+
+        refreshChatting();
     }
 
     private void sendNotification() {
@@ -87,5 +91,11 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+    }
+
+    public void refreshChatting() {
+        Intent intent = new Intent();
+        intent.setAction(CHATTING_SERVICE_ACTTION);
+        sendBroadcast(intent);
     }
 }
