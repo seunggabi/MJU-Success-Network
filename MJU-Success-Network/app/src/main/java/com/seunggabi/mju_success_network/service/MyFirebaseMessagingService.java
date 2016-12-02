@@ -41,7 +41,6 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
         defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         ring = RingtoneManager.getRingtone(this, defaultSoundUri);
-        ring.play();
     }
 
     @Override
@@ -56,8 +55,10 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
             g_id = Integer.parseInt(remoteMessage.getData().get("g_id"));
             g_name = remoteMessage.getData().get("g_name");
         }
-        if(u_alarm.equals("Y") && j_alarm.equals("Y"))
+        if(u_alarm.equals("Y") && j_alarm.equals("Y")) {
             sendNotification();
+            ring.play();
+        }
 
         refreshChatting();
     }

@@ -158,7 +158,7 @@ public class ScheduleActivity extends AppCompatActivity {
                 Tool.getInstance().toast("장소와 내용을 입력해주세요.", this);
             }
         }else {
-            Tool.getInstance().toast("약속 시간은 과거로 설정할 수 없어요.", this);
+            Tool.getInstance().toast("약속일은 내일부터 설정이 가능합니다.", this);
         }
     }
 

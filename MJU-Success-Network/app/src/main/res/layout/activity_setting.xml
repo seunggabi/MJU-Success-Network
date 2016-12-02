@@ -50,4 +50,29 @@
         android:layout_toStartOf="@+id/chat"
         android:layout_marginEnd="89dp" />
 
+    <Button
+        android:text="전체알람켜기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gr"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:id="@+id/alarmON"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="alarmChange" />
+
+    <Button
+        android:text="전체알람끄기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alarmON"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/alarmOFF"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="alarmChange" />
+
 </RelativeLayout>
