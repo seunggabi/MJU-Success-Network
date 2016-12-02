@@ -177,4 +177,9 @@ public class Tool {
     public char toggleYN(char yn) {
         return yn == 'Y' ? 'N' : 'Y';
     }
+
+    public void goActivity(Activity from, Class<?> cls) {
+        Intent intent = new Intent(from, cls);
+        from.startActivity(intent);
+    }
 }

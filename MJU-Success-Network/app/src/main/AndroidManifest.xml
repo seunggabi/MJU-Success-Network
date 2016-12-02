@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <uses-feature android:name="android.hardware.nfc" />
 
@@ -15,17 +17,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:launchMode="singleInstance"
+        android:launchMode="singleTask"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".view.menu.MainActivity"
-            android:launchMode="singleInstance">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:name=".model.DBProvider"
@@ -52,29 +46,37 @@
         <receiver android:name=".service.ChattingBroadcastReceiver"/>
 
         <activity
+            android:name=".view.menu.MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".view.group.GroupInfoActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.group.GroupAddActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.group.GroupEditActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.menu.GroupActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.menu.JoinActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.menu.NoticeActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.menu.SettingActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.chatting.ChattingActivity"
-            android:launchMode="singleInstance" >
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="com.seunggabi.mju_success_network.chatting" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -82,28 +84,34 @@
         </activity>
         <activity
             android:name=".view.chatting.ChattingUserActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.schedule.ScheduleActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.map.MapActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.schedule.ScheduleListActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.schedule.ScheduleInfoActivity"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.attend.AttendActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".bluetoothchat.DeviceListActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".bluetoothchat.WhisperActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
