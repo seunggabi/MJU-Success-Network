@@ -26,10 +26,17 @@ public class SettingActivity extends ParentActivity {
 
         alarmONButton = (Button) findViewById(R.id.alarmON);
         alarmOFFButton = (Button) findViewById(R.id.alarmOFF);
+
+        checkAlarm();
     }
 
     @Override
     protected void onResume() {
+        checkAlarm();
+        super.onResume();
+    }
+
+    public void checkAlarm() {
         if(Constants.user.getAlarm() == 'Y') {
             alarmONButton.setVisibility(View.VISIBLE);
             alarmOFFButton.setVisibility(View.INVISIBLE);
@@ -37,10 +44,8 @@ public class SettingActivity extends ParentActivity {
             alarmONButton.setVisibility(View.INVISIBLE);
             alarmOFFButton.setVisibility(View.VISIBLE);
         }
-        super.onResume();
     }
-
-    public void alarmChange(View view) {
+    public void changeAlarm(View view) {
         char alarmStatus = Constants.user.getAlarm();
         HashMap<String, String> data = new HashMap<String, String>();
         data.put("token", FirebaseInstanceId.getInstance().getToken());

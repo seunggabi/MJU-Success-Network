@@ -61,7 +61,7 @@
         android:id="@+id/alarmON"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="alarmChange" />
+        android:onClick="changeAlarm" />
 
     <Button
         android:text="전체알람끄기"
@@ -73,6 +73,6 @@
         android:id="@+id/alarmOFF"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="alarmChange" />
+        android:onClick="changeAlarm" />
 
 </RelativeLayout>
