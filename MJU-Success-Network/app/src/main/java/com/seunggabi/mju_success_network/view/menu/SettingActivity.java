@@ -1,6 +1,5 @@
 package com.seunggabi.mju_success_network.view.menu;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +27,6 @@ public class SettingActivity extends ParentActivity {
 
         alarmONButton = (Button) findViewById(R.id.alarmON);
         alarmOFFButton = (Button) findViewById(R.id.alarmOFF);
-
         checkAlarm();
     }
 
@@ -39,7 +37,7 @@ public class SettingActivity extends ParentActivity {
     }
 
     public void checkAlarm() {
-        if(Constants.user.getAlarm() == 'Y') {
+        if(Constants.user.getAlarm() == 'N') {
             alarmONButton.setVisibility(View.VISIBLE);
             alarmOFFButton.setVisibility(View.INVISIBLE);
         } else {
@@ -47,8 +45,10 @@ public class SettingActivity extends ParentActivity {
             alarmOFFButton.setVisibility(View.VISIBLE);
         }
     }
+
     public void changeAlarm(View view) {
         char alarmStatus = Constants.user.getAlarm();
+        alarmStatus = Tool.getInstance().toggleYN(alarmStatus);
         HashMap<String, String> data = new HashMap<String, String>();
         data.put("token", FirebaseInstanceId.getInstance().getToken());
         data.put("u_alarm", String.valueOf(alarmStatus));
@@ -57,8 +57,8 @@ public class SettingActivity extends ParentActivity {
         if(Tool.getInstance().isNetwork(this))
             Tool.getInstance().getToServer(data, url);
 
-        Constants.user.setAlarm(Tool.getInstance().toggleYN(alarmStatus));
-        Tool.getInstance().reload(this);
+        Constants.user.setAlarm(alarmStatus);
+        checkAlarm();
     }
 
     public void goWhisper(View view) {
