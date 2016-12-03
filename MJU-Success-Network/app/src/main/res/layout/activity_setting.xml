@@ -4,101 +4,109 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Chat"
+        android:text="사용방법 확인하기"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/gr"
-        android:onClick="goChatting"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/chat" />
-
-    <Button
-        android:text="Notice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/chat"
-        android:onClick="goNotice"
-        android:id="@+id/notice" />
-
-    <Button
-        android:text="Set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/notice"
-        android:onClick="goSetting"
-        android:id="@+id/set" />
-
-    <Button
-        android:text="Gr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gr"
-        android:onClick="goGroup"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/chat"
-        android:layout_alignBottom="@+id/notice" />
-
-    <Button
-        android:text="My"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/my"
-        android:onClick="goProfile"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/chat"
-        android:layout_marginEnd="89dp" />
-
-    <Button
-        android:text="전체알람켜기"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gr"
+        android:id="@+id/videoButton"
+        android:onClick="goVideo"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp"
-        android:id="@+id/alarmON"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="changeAlarm" />
-
-    <Button
-        android:text="전체알람끄기"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/alarmON"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/alarmOFF"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="changeAlarm" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="귓속말"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/alarmON"
+        android:id="@+id/whisperButton"
+        android:onClick="goWhisper"
+        android:layout_above="@+id/videoButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/whisperButton"
+        android:layout_marginBottom="26dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="goWhisper" />
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="사용방법 확인하기"
+        android:text="전체알람켜기"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/whisperButton"
+        android:id="@+id/alarmON"
+        android:onClick="changeAlarm"
+        android:layout_above="@+id/whisperButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/videoButton"
+        android:layout_marginBottom="14dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="goVideo" />
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="전체알람끄기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmOFF"
+        android:onClick="changeAlarm"
+        android:layout_alignTop="@+id/alarmON"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/gr"
+            android:onClick="goProfile"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/chat"
+            android:background="@drawable/my"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:onClick="goGroup"
+            android:id="@+id/notice"
+            android:background="@drawable/group"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:onClick="goChatting"
+            android:id="@+id/set"
+            android:background="@drawable/chatting"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/gr"
+            android:onClick="goNotice"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/notice"
+            android:background="@drawable/notice"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/my"
+            android:onClick="goSetting"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/setting"
+            android:layout_weight="0.25" />
+    </LinearLayout>
 
 </RelativeLayout>

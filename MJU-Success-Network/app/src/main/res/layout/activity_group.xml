@@ -4,82 +4,14 @@
     android:layout_height="match_parent"
     android:id="@+id/layout">
 
-    <Button
-        android:text="Chat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/gr"
-        android:onClick="goChatting"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/chat" />
-
-    <Button
-        android:text="Notice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/chat"
-        android:onClick="goNotice"
-        android:id="@+id/notice" />
-
-    <Button
-        android:text="Set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/notice"
-        android:onClick="goSetting"
-        android:id="@+id/set" />
-
-    <Button
-        android:text="Gr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gr"
-        android:onClick="goGroup"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/chat"
-        android:layout_alignBottom="@+id/notice" />
-
-    <Button
-        android:text="My"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/my"
-        android:onClick="goProfile"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/chat"
-        android:layout_marginEnd="89dp" />
-
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/chat"
-        android:layout_marginTop="43dp"
-        android:layout_alignParentBottom="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/search"
-        android:layout_below="@+id/chat"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/notice"
-        android:layout_toLeftOf="@+id/notice" />
-
-    <Button
-        android:text="Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sendButton"
-        android:onClick="search"
-        android:layout_alignBottom="@+id/search"
-        android:layout_toRightOf="@+id/chat"
-        android:layout_toEndOf="@+id/chat" />
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/sendButton" />
 
     <Button
         android:text="Add"
@@ -93,5 +25,83 @@
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/notice"
         android:layout_toEndOf="@+id/notice" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendButton"
+        android:onClick="search"
+        android:layout_alignBaseline="@+id/search"
+        android:layout_alignBottom="@+id/search"
+        android:layout_toLeftOf="@+id/joinListButton"
+        android:layout_toStartOf="@+id/joinListButton" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/search"
+        android:layout_marginTop="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/sendButton"
+        android:layout_toStartOf="@+id/sendButton" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/gr"
+            android:onClick="goProfile"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/chat"
+            android:background="@drawable/my"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:onClick="goGroup"
+            android:id="@+id/notice"
+            android:background="@drawable/group"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:onClick="goChatting"
+            android:id="@+id/set"
+            android:background="@drawable/chatting"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/gr"
+            android:onClick="goNotice"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/notice"
+            android:background="@drawable/notice"
+            android:layout_weight="0.25" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/my"
+            android:onClick="goSetting"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/setting"
+            android:layout_weight="0.25" />
+    </LinearLayout>
 
 </RelativeLayout>
