@@ -12,6 +12,7 @@ import com.seunggabi.mju_success_network.R;
  * Created by USER on 2016-11-25.
  */
 
+//부모 메뉴 뷰, 다른 메뉴 뷰가 상속
 public class ParentActivity extends AppCompatActivity {
     protected Button my;
     protected Button group;

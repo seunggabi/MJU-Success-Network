@@ -33,13 +33,11 @@ import static android.widget.Toast.LENGTH_LONG;
  * Created by seunggabi on 2016-10-11.
  */
 
+//Singleton Pattern & 도구 클래스
 public class Tool {
     private static Tool tool;
 
-    private Tool() {
-    }
-
-    ;
+    private Tool() {}
 
     public static Tool getInstance() {
         if (tool == null) {
@@ -48,6 +46,7 @@ public class Tool {
         return tool;
     }
 
+    //숫자인지 확인하는 함수
     public boolean isInteger(String s, Context context) {
         try {
             int num = Integer.parseInt(s);
@@ -58,10 +57,12 @@ public class Tool {
         }
     }
 
+    //토스트 띄워주는 함수
     public void toast(String s, Context context) {
         Toast.makeText(context, s, LENGTH_LONG).show();
     }
 
+    //전화 거는 함수
     public void call(String tel, Context context) {
         String URI = "tel:";
         URI += tel;
@@ -70,6 +71,7 @@ public class Tool {
         context.startActivity(callIntent);
     }
 
+    //서버로 Data 보내는 함수
     public void sendToServer(final HashMap<String, String> data, final String url) {
         new Thread() {
             public void run() {
@@ -93,6 +95,7 @@ public class Tool {
         }.start();
     }
 
+    //서버로 Data 보내고 JSON Data 받는 함수
     public JSONArray getToServer(final HashMap<String, String> data, final String url) {
         boolean check = true;
         JsonThread thread = new JsonThread(data, url);
@@ -105,6 +108,7 @@ public class Tool {
         return thread.getArray();
     }
 
+    //네트워크 연결 확인 함수
     public boolean isNetwork(Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
@@ -120,11 +124,13 @@ public class Tool {
         }
     }
 
+    //화면 리로드 함수
     public void reload(Activity act) {
         act.finish();
         act.startActivity(act.getIntent());
     }
 
+    //User 정보 가져오는 함수
     public void getUser(Context context) {
         String url = "http://" + Constants.IP + "/api/user.php?mode=get";
         User user = new User();
@@ -160,11 +166,13 @@ public class Tool {
         }
     }
 
+    //Data to String
     public String dateToString(Date date) {
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return transFormat.format(date);
     }
 
+    //String to Date
     public Date stringToDate(String date) {
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
@@ -175,10 +183,12 @@ public class Tool {
         return null;
     }
 
+    //YN 토글 함수
     public char toggleYN(char yn) {
         return yn == 'Y' ? 'N' : 'Y';
     }
 
+    //Activity 이동 함수
     public void goActivity(Activity from, Class<?> cls) {
         Intent intent = new Intent(from, cls);
         from.startActivity(intent);

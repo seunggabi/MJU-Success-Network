@@ -16,6 +16,7 @@ import com.seunggabi.mju_success_network.helper.Tool;
 
 import java.util.HashMap;
 
+//그룹 수정 뷰
 public class GroupEditActivity extends AppCompatActivity {
     TextView name;
     TextView intro;

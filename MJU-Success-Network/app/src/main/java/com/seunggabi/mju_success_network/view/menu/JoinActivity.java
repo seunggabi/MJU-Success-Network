@@ -20,13 +20,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * Created by USER on 2016-11-20.
  */
 
+//채팅 참가내역 리스트 뷰
 public class JoinActivity extends ParentActivity {
     private TextView search;
     private ListView listView;

@@ -20,12 +20,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
-
 /**
  * Created by USER on 2016-11-20.
  */
 
+//그룹 리스트 뷰
 public class GroupActivity extends ParentActivity {
     private TextView search;
     private ListView listView;

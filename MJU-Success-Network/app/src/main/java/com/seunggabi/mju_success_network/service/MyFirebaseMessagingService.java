@@ -20,8 +20,8 @@ import com.seunggabi.mju_success_network.view.menu.NoticeActivity;
  * Created by seunggabi on 2016-11-06.
  */
 
+//FCM 서비스 클래스
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
-    private static final String TAG = "FirebaseMsgService";
     public static final String CHATTING_SERVICE_ACTTION = "com.seunggabi.mju_success_network.service.chatting";
     public static final String CHATTING_ACTTION = "com.seunggabi.mju_success_network.chatting";
     private int g_id;

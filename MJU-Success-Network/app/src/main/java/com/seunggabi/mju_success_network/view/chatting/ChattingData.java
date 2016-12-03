@@ -1,8 +1,6 @@
 package com.seunggabi.mju_success_network.view.chatting;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**

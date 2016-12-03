@@ -18,6 +18,7 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 
+//그룹 정보 뷰
 public class GroupInfoActivity extends AppCompatActivity {
     GroupData GroupData;
     TextView name;

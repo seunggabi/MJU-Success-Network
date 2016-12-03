@@ -9,6 +9,7 @@ import android.view.SurfaceView;
 
 import com.seunggabi.mju_success_network.R;
 
+//튜토리얼 재생 뷰
 public class VideoActivity extends AppCompatActivity implements SurfaceHolder.Callback, MediaPlayer.OnPreparedListener {
     SurfaceView surfaceView;
     SurfaceHolder surfaceHolder;

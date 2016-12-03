@@ -10,6 +10,7 @@ import com.seunggabi.mju_success_network.view.chatting.ChattingActivity;
  * Created by seunggabi on 2016-12-02.
  */
 
+//채팅방 리로드 BroadcastReceiver
 public class ChattingBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

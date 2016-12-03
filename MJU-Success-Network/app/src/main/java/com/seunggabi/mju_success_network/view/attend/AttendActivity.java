@@ -1,32 +1,21 @@
 package com.seunggabi.mju_success_network.view.attend;
 
-import android.content.Context;
 import android.content.Intent;
-import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
-import android.nfc.Tag;
-import android.nfc.tech.Ndef;
-import android.os.Build;
-import android.os.Parcelable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.helper.Tool;
-import com.seunggabi.mju_success_network.view.group.GroupData;
-import com.seunggabi.mju_success_network.view.group.GroupInfoActivity;
-import com.seunggabi.mju_success_network.view.group.GroupViewAdapter;
 import com.seunggabi.mju_success_network.view.schedule.ScheduleData;
 import com.seunggabi.mju_success_network.view.schedule.ScheduleInfoActivity;
 
@@ -34,9 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.HashMap;
 
+//출석체크 리스트 뷰
 public class AttendActivity extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
     private Intent intent;
     private ScheduleData scheduleData;

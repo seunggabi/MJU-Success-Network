@@ -14,6 +14,8 @@ import okhttp3.Response;
  * Created by seunggabi on 2016-11-21.
  */
 
+
+//HTTP Request & Response 통신 Server JSON API 사용
 public class JsonThread extends Thread {
     private JSONArray array;
     private HashMap<String, String> data;
@@ -46,6 +48,7 @@ public class JsonThread extends Thread {
         } catch (Exception e) {
         }
     }
+
     public JSONArray getArray() {
         return array;
     }

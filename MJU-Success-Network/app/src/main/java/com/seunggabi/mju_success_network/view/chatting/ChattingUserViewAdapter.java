@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.seunggabi.mju_success_network.R;
-import com.seunggabi.mju_success_network.helper.Tool;
 
 import java.util.ArrayList;
 
@@ -17,6 +15,7 @@ import java.util.ArrayList;
  * Created by seunggabi on 2016-11-23.
  */
 
+//채팅방 사용자 정보 ListView Adapter
 public class ChattingUserViewAdapter extends BaseAdapter {
     private Context context;
     private ChattingUserViewHolder holder;

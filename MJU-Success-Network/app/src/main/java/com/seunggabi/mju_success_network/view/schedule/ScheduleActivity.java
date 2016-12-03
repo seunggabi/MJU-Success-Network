@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+//약속 뷰
 public class ScheduleActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioButtonDate;

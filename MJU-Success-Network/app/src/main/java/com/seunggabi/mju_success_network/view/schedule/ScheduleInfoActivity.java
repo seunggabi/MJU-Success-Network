@@ -20,6 +20,7 @@ import com.seunggabi.mju_success_network.view.map.MapParentActivity;
 
 import java.util.HashMap;
 
+//약속 정보 뷰
 public class ScheduleInfoActivity extends MapParentActivity {
     ScheduleData scheduleData;
     GroupData groupData;

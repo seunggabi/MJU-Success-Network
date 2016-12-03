@@ -27,6 +27,7 @@ public class DBTool {
 
     private DBTool() {};
 
+    //DAO List로 관리해서 한꺼번에 Create & Drop
     public static DBTool getInstance() {
         if(tool == null) {
             tool = new DBTool();

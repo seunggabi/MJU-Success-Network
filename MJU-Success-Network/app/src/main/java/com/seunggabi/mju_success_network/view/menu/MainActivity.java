@@ -22,6 +22,7 @@ import com.seunggabi.mju_success_network.model.dao.PosDAO;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//개인정보 수정 뷰
 public class MainActivity extends ParentActivity {
     TextView email;
     TextView name;

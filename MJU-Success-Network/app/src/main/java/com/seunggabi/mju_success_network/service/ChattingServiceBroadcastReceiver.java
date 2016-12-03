@@ -8,6 +8,8 @@ import android.content.Intent;
  * Created by seunggabi on 2016-12-02.
  */
 
+
+//ChattingService에서 사용하는 BroadcastReceiver
 public class ChattingServiceBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

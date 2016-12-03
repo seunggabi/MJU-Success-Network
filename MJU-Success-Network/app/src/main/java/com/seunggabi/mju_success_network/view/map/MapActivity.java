@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+//약속 지도 설정 뷰
 public class MapActivity extends MapParentActivity {
     private EditText editText;
     private String addrline;

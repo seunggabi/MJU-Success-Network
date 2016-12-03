@@ -10,11 +10,13 @@ import android.os.IBinder;
 import static com.seunggabi.mju_success_network.service.MyFirebaseMessagingService.CHATTING_ACTTION;
 import static com.seunggabi.mju_success_network.service.MyFirebaseMessagingService.CHATTING_SERVICE_ACTTION;
 
+//FCM 왔을때 Chatting방에 대한 정보일 경우 클래스
 public class ChattingService extends Service {
     private final IBinder binder;
     private BroadcastReceiver broadcastReceiver;
     private IntentFilter intentFilter;
 
+    //혹시 몰라서 서비스 Bind
     public class ChattingBinder extends Binder {
         public ChattingService getService() {
             return  ChattingService.this;
@@ -45,6 +47,7 @@ public class ChattingService extends Service {
         return binder;
     }
 
+    //채팅방 리로드 이벤트 발생
     public void refresh() {
         Intent intent = new Intent();
         intent.setAction(CHATTING_ACTTION);

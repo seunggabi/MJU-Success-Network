@@ -1,7 +1,5 @@
 package com.seunggabi.mju_success_network.service;
 
-import android.util.Log;
-
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.seunggabi.mju_success_network.Constants;
@@ -17,14 +15,12 @@ import okhttp3.RequestBody;
  * Created by seunggabi on 2016-11-06.
  */
 
+//FCM token 클래스
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
-    private static final String TAG = "MyFirebaseIIDService";
 
     @Override
     public void onTokenRefresh() {
         String token = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "Refreshed token: " + token);
-
         sendRegistrationToServer(token);
     }
 

@@ -19,6 +19,7 @@ import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.seunggabi.mju_success_network.R;
 
+//지도 뷰
 public class MapParentActivity extends NMapActivity{
     protected static final String KEY_ZOOM_LEVEL = "NMapViewer.zoomLevel";
     protected static final String KEY_CENTER_LONGITUDE = "NMapViewer.centerLongitudeE6";

@@ -9,6 +9,7 @@ import java.util.Date;
  * Created by seunggabi on 2016-11-23.
  */
 
+//채팅방 사용자 정보 데이터
 public class ChattingUserData implements Serializable {
     private int j_id;
     private int u_id;

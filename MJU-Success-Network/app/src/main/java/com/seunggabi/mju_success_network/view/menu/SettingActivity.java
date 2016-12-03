@@ -17,6 +17,7 @@ import java.util.HashMap;
  * Created by USER on 2016-11-20.
  */
 
+//세팅 뷰
 public class SettingActivity extends ParentActivity {
     private Button alarmONButton;
     private Button alarmOFFButton;
