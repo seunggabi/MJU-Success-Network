@@ -127,7 +127,8 @@ public class Tool {
 
     public void getUser(Context context) {
         String url = "http://" + Constants.IP + "/api/user.php?mode=get";
-        User user = null;
+        User user = new User();
+        user.testData();
         JSONArray array = null;
         HashMap<String, String> data = new HashMap<String, String>();
         if (FirebaseInstanceId.getInstance().getToken() != null)

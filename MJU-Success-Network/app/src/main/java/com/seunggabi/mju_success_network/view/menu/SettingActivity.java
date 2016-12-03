@@ -9,6 +9,7 @@ import com.seunggabi.mju_success_network.Constants;
 import com.seunggabi.mju_success_network.R;
 import com.seunggabi.mju_success_network.bluetoothchat.WhisperActivity;
 import com.seunggabi.mju_success_network.helper.Tool;
+import com.seunggabi.mju_success_network.view.video.VideoActivity;
 
 import java.util.HashMap;
 
@@ -63,5 +64,9 @@ public class SettingActivity extends ParentActivity {
 
     public void goWhisper(View view) {
         Tool.getInstance().goActivity(this, WhisperActivity.class);
+    }
+
+    public void goVideo(View view) {
+        Tool.getInstance().goActivity(this, VideoActivity.class);
     }
 }

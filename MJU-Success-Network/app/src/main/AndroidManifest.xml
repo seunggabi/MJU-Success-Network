@@ -20,7 +20,6 @@
         android:launchMode="singleTask"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name=".model.DBProvider"
             android:authorities="com.seunggabi.mju_success_network"
@@ -43,13 +42,15 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".service.ChattingBroadcastReceiver"/>
+        <receiver android:name=".service.ChattingBroadcastReceiver" />
+        <receiver android:name=".service.ChattingServiceBroadcastReceiver" />
 
         <activity
             android:name=".view.menu.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -76,9 +77,10 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".view.chatting.ChattingActivity"
-            android:launchMode="singleTask" >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="com.seunggabi.mju_success_network.chatting" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -102,7 +104,9 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
@@ -112,6 +116,7 @@
         <activity
             android:name=".bluetoothchat.WhisperActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".view.video.VideoActivity"></activity>
     </application>
 
 </manifest>

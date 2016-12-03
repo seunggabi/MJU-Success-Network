@@ -111,4 +111,17 @@ public class User {
     public void setP_id(int p_id) {
         this.p_id = p_id;
     }
+
+    public void testData() {
+        this.id = 0;
+        this.email = "test@seunggabi.com";
+        this.password = "";
+        this.name = "테스터";
+        this.phone = "01012345678";
+        this.intro = "테스터";
+        this.level = 0;
+        this.alarm = 'Y';
+        this.d_id = 0;
+        this.p_id = 0;
+    }
 }
