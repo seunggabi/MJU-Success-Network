@@ -41,6 +41,10 @@
                 <action android:name="com.seunggabi.mju_success_network.service.chatting" />
             </intent-filter>
         </service>
+        <service
+            android:name= "com.seunggabi.mju_success_network.bluetoothchat.service.BTCTemplateService"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </service>
 
         <receiver android:name=".service.ChattingBroadcastReceiver" />
         <receiver android:name=".service.ChattingServiceBroadcastReceiver" />
