@@ -92,6 +92,9 @@ public class MainActivity extends ParentActivity {
         deptSpinner.setSelection(2);
         posSpinner.setSelection(0);
         getUser();
+        if(Constants.user == null) {
+            Tool.getInstance().reload(this);
+        }
     }
 
     @Override

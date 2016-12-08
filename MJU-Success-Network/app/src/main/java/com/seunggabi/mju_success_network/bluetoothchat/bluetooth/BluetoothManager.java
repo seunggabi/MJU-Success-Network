@@ -409,14 +409,14 @@ public class BluetoothManager {
 
             // Make a connection to the BluetoothSocket
             try {
-                // This is a blocking call and will only return on a
-                // successful connection or an exception
-                mmSocket.connect();
+                if(mmSocket != null)
+                    mmSocket.connect();
             } catch (IOException e) {
                 connectionFailed();
                 // Close the socket
                 try {
-                    mmSocket.close();
+                    if(mmSocket != null)
+                        mmSocket.close();
                 } catch (IOException e2) {
                     Log.e(TAG, "unable to close() socket during connection failure", e2);
                 }
@@ -460,8 +460,10 @@ public class BluetoothManager {
 
             // Get the BluetoothSocket input and output streams
             try {
-                tmpIn = socket.getInputStream();
-                tmpOut = socket.getOutputStream();
+                if(socket != null) {
+                    tmpIn = socket.getInputStream();
+                    tmpOut = socket.getOutputStream();
+                }
             } catch (IOException e) {
                 Log.e(TAG, "temp sockets not created", e);
             }
@@ -477,14 +479,15 @@ public class BluetoothManager {
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
-                    // Read from the InputStream
-                    byte[] buffer = new byte[128];
-                    Arrays.fill(buffer, (byte)0x00);
-                    bytes = mmInStream.read(buffer);
+                    if(mmInStream != null) {
+                        byte[] buffer = new byte[128];
+                        Arrays.fill(buffer, (byte) 0x00);
+                        bytes = mmInStream.read(buffer);
 
-                    // Send the obtained bytes to the main thread
-                    mHandler.obtainMessage(MESSAGE_READ, bytes, -1, buffer)
-                            .sendToTarget();
+                        // Send the obtained bytes to the main thread
+                        mHandler.obtainMessage(MESSAGE_READ, bytes, -1, buffer)
+                                .sendToTarget();
+                    }
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
@@ -511,7 +514,8 @@ public class BluetoothManager {
 
         public void cancel() {
             try {
-                mmSocket.close();
+                if(mmSocket != null)
+                    mmSocket.close();
             } catch (IOException e) {
                 Log.e(TAG, "close() of connect socket failed");
             }
